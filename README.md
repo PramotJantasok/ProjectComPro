@@ -1,5 +1,7 @@
 # Bank Management System
 > Project Computer Programming
+# บทคัดย่อ
+> [บทคัดย่อ](https://google.com/)
 # ที่มา
   > ...
 # วัตถุประสงค์
@@ -9,8 +11,6 @@
 > * ...
 # โปรแกรม และภาษาที่ใช้
 > * ...
-# บทคัดย่อ
-> [บทคัดย่อ](https://google.com/)
 # Video
 > [Bank Management System | Computer Programming Project](https://youtu.be/URR_Nv-6MZs)
 # โปสเตอร์
