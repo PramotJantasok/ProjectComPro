@@ -12,7 +12,7 @@
 # โปรแกรม และภาษาที่ใช้
 > * ...
 # Video
-> [Bank Management System | Computer Programming Project](https://youtu.be/URR_Nv-6MZs)
+> [Bank Management System | Computer Programming Project](https://youtu.be/THTs2QGmdl0)
 # โปสเตอร์
 >  ![Poster](poster/anyatest.png)
 ## สมาชิก
