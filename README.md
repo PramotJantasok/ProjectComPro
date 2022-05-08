@@ -1,7 +1,7 @@
 # Bank Management System
 > Project Computer Programming
 # บทคัดย่อ
-> [บทคัดย่อ](https://google.com/)
+> [บทคัดย่อ](https://docs.google.com/document/d/1yAhsaE5xrhK6O9AWhR-B6Jkuzf1IUlZ4Hnu-8HcaP2g/edit?usp=sharing)
 # ที่มา
   > ...
 # วัตถุประสงค์
