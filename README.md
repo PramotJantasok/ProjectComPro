@@ -14,7 +14,7 @@
 # Video
 > [Bank Management System | Computer Programming Project](https://youtu.be/dQw4w9WgXcQ)
 # โปสเตอร์
->  ![Poster](poster/anyatest.png)
+>  ![Poster](poster/PosterProject.png)
 ## สมาชิก
 ---
 
