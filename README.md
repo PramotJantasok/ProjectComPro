@@ -7,7 +7,7 @@
 # ประโยชน์ที่ได้รับ
 > * ...
 > * ...
-# อุปกรณ์
+# โปรแกรม และภาษาที่ใช้
 > * ...
 # บทคัดย่อ
 > [บทคัดย่อ](https://google.com/)
@@ -15,7 +15,7 @@
 > [Bank Management System | Computer Programming Project](https://youtu.be/URR_Nv-6MZs)
 # โปสเตอร์
 >  ![Poster](poster/anyatest.png)
-### สมาชิก
+## สมาชิก
 ---
 
 | No.Student | Name |  Working |
