@@ -209,7 +209,7 @@ void new_account(){
         }
     }
 
-    printf("\nAccount created successfully!");
+    printf("\n\t\t\tAccount created successfully!");
     printf("\n\n\n\t\tEnter 1 add new account \n\t\tEnter 0 Back to menu :");
     scanf("%d", &main_exit);
     if (main_exit == 1){
@@ -222,13 +222,10 @@ void new_account(){
 }
 void edit_infor(){
     int choice,test=0;
-    char conf[5];
-    char b_name[50];
-    char b_lastname[50];
+
     FILE *old,*newrec;
     old=fopen("record.dat","r");
     newrec=fopen("new.dat","w");
-
     printf("\n\n\t\tEnter the account no. of the customer whose info you want to change:");
     scanf("%d",&upd.acc_no);
     while(fscanf(old,"%d %s %s %d/%d/%d %d %s %d %s %f %d/%d/%d",&add.acc_no,
@@ -238,21 +235,17 @@ void edit_infor(){
     {
         if (add.acc_no==upd.acc_no)
         {   test=1;
-            printf("\n\t\t\tName: %s  Lastname: %s",b_name,b_lastname);
+            printf("\n\t\t\tName: %s  Lastname: %s",add.name,add.lastname);
             printf("\n\t\t\tWhich information do you want to change?\n\t\t\t1.Address\n\t\t\t2.Phone\n\t\t\t3.Name\n\t\t\t4.Lastname\n\t\t\tEnter your choice :");
             scanf("%d",&choice);
             system("cls");
             if(choice==1)
             {
-                char con_addr[5];
+
                 char old_add[50];
                 strcpy(old_add, add.address);
-                printf("\n\n\t\t\tEnter the new address:");
+                printf("\n\n\n\t\t\tEnter the new address:");
                 scanf("%s",upd.address);
-                printf("\n\t\t Account number %d Old email: %s change the Email to %s\n", add.acc_no, old_add,upd.address);
-                printf("\n\t\t Confirm the correction, please check the information [yes/no]:");
-                scanf("%s", con_addr);
-                if (strcmp(con_addr, "yes") == 0){
                     fprintf(newrec,"%d %s %s %d/%d/%d %d %s %d %s %f %d/%d/%d\n",add.acc_no,
                             add.name,add.lastname,
                             add.dob.month,add.dob.day,
@@ -262,43 +255,25 @@ void edit_infor(){
                             add.deposit.month,add.deposit.day,
                             add.deposit.year);
                     system("cls");
-                    printf("\n\t\tChanges saved!");
-                    fclose(old);
-                    fclose(newrec);
-                    remove("record.dat");
-                    rename("new.dat","record.dat");
-                }else{
-                    break;
-                }
+                    printf("\n\t\t\tChanges saved!");
+
 
             }
             else if(choice==2)
 
             {   int old_phone = add.phone;
-                char con_ph[5];
 
                 printf("\n\n\t\t\tEnter the new phone number:");
                 scanf("%d",&upd.phone);
 
                 printf("\n\t\t Account number %d Old phone: %d change the Phone to %d\n", add.acc_no, old_phone,upd.phone);
-                printf("\n\t\t Confirm the correction, please check the information [yes/no]:");
-                scanf("%s", con_ph);
-
-                if (strcmp(con_ph, "yes") == 0){
-                    fprintf(newrec,"%d %s %s %d/%d/%d %d %s %d %s %f %d/%d/%d\n",add.acc_no,
-                            add.name,add.lastname,add.dob.month,add.dob.day,
-                            add.dob.year,add.age,add.address,upd.phone,
-                            add.acc_type,add.amt,add.deposit.month,
-                            add.deposit.day,add.deposit.year);
-                    system("cls");
-                    printf("\n\t\tChanges saved!");
-                    fclose(old);
-                    fclose(newrec);
-                    remove("record.dat");
-                    rename("new.dat","record.dat");
-                }else{
-                    break;
-                }
+                fprintf(newrec,"%d %s %s %d/%d/%d %d %s %d %s %f %d/%d/%d\n",add.acc_no,
+                        add.name,add.lastname,add.dob.month,add.dob.day,
+                        add.dob.year,add.age,add.address,upd.phone,
+                        add.acc_type,add.amt,add.deposit.month,
+                        add.deposit.day,add.deposit.year);
+                system("cls");
+                printf("\n\t\t\tChanges saved!");
 
             } else if (choice == 3){
                 char old_name[50];
@@ -306,59 +281,39 @@ void edit_infor(){
                 printf("\n\n\t\t\tEnter the new Name:");
                 scanf("%s",upd.name);
                 printf("\n\t\t Account number %d Name: %s change the name to %s\n", add.acc_no, old_name,upd.name);
-                printf("\n\t\t Confirm the correction, please check the information [yes/no]:");
-                scanf("%s", conf);
-                if (strcmp(conf, "yes") == 0){
-                    fprintf(newrec,"%d %s %s %d/%d/%d %d %s %d %s %f %d/%d/%d\n",add.acc_no,
-                            upd.name,add.lastname,
-                            add.dob.month,add.dob.day,
-                            add.dob.year,add.age,
-                            add.address,add.phone,
-                            add.acc_type,add.amt,
-                            add.deposit.month,add.deposit.day,
-                            add.deposit.year);
-                    system("cls");
-                    printf("\n\t\tChanges saved!");
-                    fclose(old);
-                    fclose(newrec);
-                    remove("record.dat");
-                    rename("new.dat","record.dat");
-                } else{
-                    break;
-                }
+                fprintf(newrec,"%d %s %s %d/%d/%d %d %s %d %s %f %d/%d/%d\n",add.acc_no,
+                        upd.name,add.lastname,
+                        add.dob.month,add.dob.day,
+                        add.dob.year,add.age,
+                        add.address,add.phone,
+                        add.acc_type,add.amt,
+                        add.deposit.month,add.deposit.day,
+                        add.deposit.year);
+                system("cls");
+                printf("\n\t\t\tChanges saved!");
+
+
 
             }else if (choice == 4){
-                char con_last[5];
+
                 char old_lastname[50];
                 strcpy(old_lastname, add.lastname);
                 printf("\n\n\t\t\tEnter the new Lastname:");
                 scanf("%s",upd.lastname);
 
                 printf("\n\t\t Account number %d Last name: %s change the Last name to %s\n", add.acc_no, old_lastname,upd.lastname);
-                printf("\n\t\t Confirm the correction, please check the information [yes/no]:");
-                scanf("%s", con_last);
-                if (strcmp(con_last, "yes") == 0){
-                    fprintf(newrec,"%d %s %s %d/%d/%d %d %s %d %s %f %d/%d/%d\n",add.acc_no,
-                            add.name,upd.lastname,
-                            add.dob.month,add.dob.day,
-                            add.dob.year,add.age,
-                            add.address,add.phone,
-                            add.acc_type,add.amt,
-                            add.deposit.month,add.deposit.day,
-                            add.deposit.year);
-                    system("cls");
-                    printf("\n\t\tChanges saved!");
-                    fclose(old);
-                    fclose(newrec);
-                    remove("record.dat");
-                    rename("new.dat","record.dat");
-                }
 
-            }else{
-                break;
+                fprintf(newrec,"%d %s %s %d/%d/%d %d %s %d %s %f %d/%d/%d\n",add.acc_no,
+                        add.name,upd.lastname,
+                        add.dob.month,add.dob.day,
+                        add.dob.year,add.age,
+                        add.address,add.phone,
+                        add.acc_type,add.amt,
+                        add.deposit.month,add.deposit.day,
+                        add.deposit.year);
+                system("cls");
+                printf("\n\t\t\tChanges saved!");
             }
-
-
         }
         else
             fprintf(newrec,"%d %s %s %d/%d/%d %d %s %d %s %f %d/%d/%d\n",add.acc_no,add.name,
@@ -366,7 +321,10 @@ void edit_infor(){
                     add.dob.year,add.age,add.address,add.phone,
                     add.acc_type,add.amt,add.deposit.month,add.deposit.day,add.deposit.year);
     }
-
+    fclose(old);
+    fclose(newrec);
+    remove("record.dat");
+    rename("new.dat","record.dat");
 
     if(test!=1)
     {   system("cls");
@@ -394,7 +352,7 @@ void transact(){   int choice,test=0;
     FILE *old,*newrec;
     old=fopen("record.dat","r");
     newrec=fopen("new.dat","w");
-    char con_t[5];
+
     printf("\n\n\t\t\tEnter the account no. of the customer:");
     scanf("%d",&transaction.acc_no);
     while (fscanf(old,"%d %s %s %d/%d/%d %d %s %d %s %f %d/%d/%d",
@@ -423,38 +381,33 @@ void transact(){   int choice,test=0;
             scanf("%d",&choice);
             if (choice==1)
             {
-
                 system("cls");
                 printf("\n\n\t\t\tEnter the amount you want to deposit:$ ");
                 scanf("%f",&transaction.amt);
 
                 printf("\n\t\t\t Name: %s money in the account now %f\n", add.name, old_m);
                 printf("\t\t\t You want to deposit :$ %f ?\n", transaction.amt);
-                printf("\t\t\t Confirm the amount you want to deposit [yes/no]");
-                scanf("%s", con_t);
-
                 float save_list = transaction.amt;
                 strcpy(l_name,add.name);
                 int l_acc = add.acc_no;
                 int t = 1;
                 list(l_acc, save_list, t);
-                if (strcmp(con_t , "yes") == 0){
-                    add.amt+=transaction.amt;
-                    fprintf(newrec,"%d %s %s %d/%d/%d %d %s %d %s %f %d/%d/%d\n",add.acc_no,
-                            add.name,
-                            add.lastname,
-                            add.dob.month,
-                            add.dob.day,
-                            add.dob.year,
-                            add.age,
-                            add.address,
-                            add.phone,
-                            add.acc_type,
-                            add.amt,
-                            add.deposit.month,add.deposit.day,add.deposit.year);
-                    printf("\n\n\t\t\tDeposited successfully!\n");
-                    printf("\n\t\t\t Name: %s money in the account now :$ %f\n", add.name, add.amt);
-                }
+                add.amt+=transaction.amt;
+                fprintf(newrec,"%d %s %s %d/%d/%d %d %s %d %s %f %d/%d/%d\n",add.acc_no,
+                        add.name,
+                        add.lastname,
+                        add.dob.month,
+                        add.dob.day,
+                        add.dob.year,
+                        add.age,
+                        add.address,
+                        add.phone,
+                        add.acc_type,
+                        add.amt,
+                        add.deposit.month,add.deposit.day,add.deposit.year);
+                printf("\n\n\t\t\tDeposited successfully!\n");
+                printf("\n\t\t\t Name: %s money in the account now :$ %f\n", add.name, add.amt);
+
 
             }
             else
@@ -464,34 +417,29 @@ void transact(){   int choice,test=0;
                 scanf("%f",&transaction.amt);
                 printf("\n\t\t\t Name: %s money in the account now %f\n", add.name, old_m);
                 printf("\t\t\t You want to withdraw :$ %f ?\n", transaction.amt);
-                printf("\t\t\t Confirm the amount you want withdraw [yes/no]:");
-                scanf("%s", con_t);
 
                 float save_list = transaction.amt;
                 strcpy(l_name,add.name);
                 int l_acc = add.acc_no;
                 int t = 1;
                 list(l_acc, save_list, t);
-                if (strcmp(con_t , "yes") == 0){
-                    add.amt-=transaction.amt;
-                    fprintf(newrec,"%d %s %s %d/%d/%d %d %s %d %s %f %d/%d/%d\n",add.acc_no,
-                            add.name,
-                            add.lastname,
-                            add.dob.month,
-                            add.dob.day,
-                            add.dob.year,
-                            add.age,
-                            add.address,
-                            add.phone,
-                            add.acc_type,
-                            add.amt,
-                            add.deposit.month,add.deposit.day,add.deposit.year);
-                    printf("\n\n\t\t\t Withdrawn successfully!\n");
-                    printf("\n\t\t\t Name: %s money in the account now :$ %f\n", add.name, add.amt);
-                }
+                add.amt-=transaction.amt;
+                fprintf(newrec,"%d %s %s %d/%d/%d %d %s %d %s %f %d/%d/%d\n",add.acc_no,
+                        add.name,
+                        add.lastname,
+                        add.dob.month,
+                        add.dob.day,
+                        add.dob.year,
+                        add.age,
+                        add.address,
+                        add.phone,
+                        add.acc_type,
+                        add.amt,
+                        add.deposit.month,add.deposit.day,add.deposit.year);
+                printf("\n\n\t\t\t Withdrawn successfully!\n");
+                printf("\n\t\t\t Name: %s money in the account now :$ %f\n", add.name, add.amt);
 
             }
-
         }
         else
         {
@@ -513,6 +461,7 @@ void transact(){   int choice,test=0;
     fclose(newrec);
     remove("record.dat");
     rename("new.dat","record.dat");
+
     if(test!=1)
     {
         printf("\n\nRecord not found!!");
@@ -548,81 +497,74 @@ void remove_account(){
 
     FILE *old,*newrec;
     int test=0;
-    char con[5];
     old=fopen("record.dat","r");
     newrec=fopen("new.dat","w");
     printf("\n\n\n\t\t\tEnter the account no. of the customer you want to delete:");
     scanf("%d",&rem.acc_no);
     int old_acc = rem.acc_no;
-    printf("\n\n\t\t\tConfirm and delete the account %d ? [yes/no] :" ,old_acc);
-    scanf("%s", con);
-
-    if (strcmp(con, "yes")==0){
-        while (fscanf(old,"%d %s %s %d/%d/%d %d %s %d %s %f %d/%d/%d",&add.acc_no,
-                      add.name,
-                      add.lastname,
-                      &add.dob.month,
-                      &add.dob.day,
-                      &add.dob.year,
-                      &add.age,
-                      add.address,
-                      &add.phone,
-                      add.acc_type,&add.amt,
-                      &add.deposit.month,
-                      &add.deposit.day,
-                      &add.deposit.year)!=EOF)
-        {
-            if(add.acc_no!=rem.acc_no)
-                fprintf(newrec,"%d %s %s %d/%d/%d %d %s %d %s %f %d/%d/%d\n",
-                        add.acc_no,
-                        add.name,
-                        add.lastname,
-                        add.dob.month,
-                        add.dob.day,
-                        add.dob.year,
-                        add.age,
-                        add.address,
-                        add.phone,
-                        add.acc_type,
-                        add.amt,
-                        add.deposit.month,
-                        add.deposit.day,
-                        add.deposit.year);
-            else
-            {test++;
-                printf("\nRecord deleted successfully!\n");
-            }
+    while (fscanf(old,"%d %s %s %d/%d/%d %d %s %d %s %f %d/%d/%d",&add.acc_no,
+                  add.name,
+                  add.lastname,
+                  &add.dob.month,
+                  &add.dob.day,
+                  &add.dob.year,
+                  &add.age,
+                  add.address,
+                  &add.phone,
+                  add.acc_type,&add.amt,
+                  &add.deposit.month,
+                  &add.deposit.day,
+                  &add.deposit.year)!=EOF)
+    {
+        if(add.acc_no!=rem.acc_no)
+            fprintf(newrec,"%d %s %s %d/%d/%d %d %s %d %s %f %d/%d/%d\n",
+                    add.acc_no,
+                    add.name,
+                    add.lastname,
+                    add.dob.month,
+                    add.dob.day,
+                    add.dob.year,
+                    add.age,
+                    add.address,
+                    add.phone,
+                    add.acc_type,
+                    add.amt,
+                    add.deposit.month,
+                    add.deposit.day,
+                    add.deposit.year);
+        else
+        {test++;
+            printf("\nRecord deleted successfully!\n");
         }
-        fclose(old);
-        fclose(newrec);
-        remove("record.dat");
-        rename("new.dat","record.dat");
-        if(test==0)
-        {
-            printf("\n\t\t\tRecord not found!!\a\a\a");
-            erase_invalid:
-            printf("\n\t\t\tEnter 0 to try again,1 to return to main menu :");
-            scanf("%d",&main_exit);
+    }
+    fclose(old);
+    fclose(newrec);
+    remove("record.dat");
+    rename("new.dat","record.dat");
+    if(test==0)
+    {
+        printf("\n\t\t\tRecord not found!!\a\a\a");
+        erase_invalid:
+        printf("\n\t\t\tEnter 0 to try again,1 to return to main menu :");
+        scanf("%d",&main_exit);
 
-            if (main_exit==1){
-                menu();
-            }
-            else if(main_exit==0){
-                remove_account();
-            }
+        if (main_exit==1){
+            menu();
+        }
+        else if(main_exit==0){
+            remove_account();
+        }
+    }
+    else
+    {printf("\n\t\t\tEnter 0 to remove again ,Enter 1 to main menu :");
+        scanf("%d",&main_exit);
+        system("cls");
+        if (main_exit==1){
+            menu();
         }
         else
-        {printf("\n\t\t\tEnter 0 to remove again ,Enter 1 to main menu :");
-            scanf("%d",&main_exit);
-            system("cls");
-            if (main_exit==1){
-                menu();
-            }
-            else
-                remove_account();}
-    } else{
-        menu();
-    }
+            remove_account();}
+
 
 }
 void list(int acc, float get, int t){
@@ -875,5 +817,6 @@ void  look() {
 
 
 }
+
 
 
