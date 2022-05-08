@@ -454,8 +454,6 @@ void transact(){   int choice,test=0;
                             add.deposit.month,add.deposit.day,add.deposit.year);
                     printf("\n\n\t\t\tDeposited successfully!\n");
                     printf("\n\t\t\t Name: %s money in the account now :$ %f\n", add.name, add.amt);
-                }else{
-                    break;
                 }
 
             }
@@ -490,8 +488,6 @@ void transact(){   int choice,test=0;
                             add.deposit.month,add.deposit.day,add.deposit.year);
                     printf("\n\n\t\t\t Withdrawn successfully!\n");
                     printf("\n\t\t\t Name: %s money in the account now :$ %f\n", add.name, add.amt);
-                }else{
-                    break;
                 }
 
             }
