@@ -18,8 +18,14 @@
 > * Visual Studio Code
 > * Command Prompt
 > * C programing
+> # หลักการทำงาน
+> * ผู้ใช้งานสามารถสร้างบัญชีของตัวเอง(กี่บัญชีก็ได้)
+> * ผู้ใช้งานสามารถเปลี่ยนแปลงข้อมูลของผู้ใช้งานได้เสมอ
+> * ผู้ใช้งานสามารถตรวจประวัติของผู้ใช้งานได้ทุกครั้งที่ใช้งาน
+> * ผู้ใช้สามารถเพิ่มหรือลบบัญชีผู้ใช้งานได้เสมอ
+> * ผู้ใช้งานสามารถฝาก-ถอนเงินได้
 # Video
-> [Bank Management System | Computer Programming Project](https://youtu.be/dQw4w9WgXcQ)
+> [Bank Management System | Computer Programming Project](https://youtu.be/_K8vB9CKQ7w)
 # โปสเตอร์
 >  ![Poster](poster/PosterProject.png)
 ## สมาชิก
